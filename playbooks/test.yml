@@ -1,9 +1,0 @@
----
-
-hosts: all
-
-tasks:
-
-  - name: Test task
-    debug:
-      msg: "This is a test"
