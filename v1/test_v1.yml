@@ -1,11 +1,12 @@
 ---
 
-hosts: all
-become: yes
+- hosts: v1
+  become_user: df
+  become: yes
 
-tasks:
-  - name: Create directory with all permissions
-    file:
-      path: /test_v1
-      state: directory
-      mode: '777'
+  tasks:
+    - name: Create directory with all permissions
+      file:
+        path: ~/test_v1
+        state: directory
+        mode: '777'

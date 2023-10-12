@@ -1,11 +1,20 @@
 ---
 
-hosts: all
-become: yes
+- hosts: localhost
 
-tasks:
-  - name: Create directory with all permissions
-    file:
-      path: /test_v2
-      state: directory
-      mode: '777'
+  tasks:
+    - name: Create directory with all permissions
+      file:
+        path: /test_v2
+        state: directory
+        mode: '777'
+
+    - name: Run shell command
+      shell: ls -lah /
+
+    - name: Run shell command
+      shell: less /etc/os-release
+
+    - name: Sleep
+      pause:
+        minutes: 10

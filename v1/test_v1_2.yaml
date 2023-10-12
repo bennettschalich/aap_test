@@ -1,0 +1,11 @@
+---
+
+- hosts: v1
+  become_user: df
+  become: yes
+
+  tasks:
+    name: Create a file inside a directory
+      file:
+        path: ~/test_v1/test.txt
+        state: touch
