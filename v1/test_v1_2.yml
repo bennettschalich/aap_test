@@ -5,7 +5,7 @@
   become: yes
 
   tasks:
-    name: Create a file inside a directory
+    - name: Create a file inside a directory
       file:
         path: ~/test_v1/test.txt
         state: touch

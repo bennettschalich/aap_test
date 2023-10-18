@@ -1,0 +1,31 @@
+---
+
+- hosts: aap
+  become_user: df
+  become: yes
+
+  tasks:
+    - name: Install awxkit
+      ansible.builtin.pip:
+        name: awxkit
+
+    - name: Create exported playbooks folder
+      become: yes
+      become_user: root
+      file:
+        state: directory
+        path: /playbooks/exports
+        mode: '0777'
+
+    - name: Run export
+      awx.awx.export:
+        inventory: 'all'
+        controller_host: https://aap
+        controller_password: password
+        controller_username: admin
+      register: export_output
+
+    - name: Copy exported content to file
+      copy:
+        content: "{{ export_output.assets | to_nice_json }}"
+        dest: /playbooks/exports/export_inventory.json

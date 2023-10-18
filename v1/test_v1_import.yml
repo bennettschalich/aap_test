@@ -1,0 +1,26 @@
+---
+
+- hosts: localhost
+
+  tasks:
+    - name: Install awxkit
+      ansible.builtin.pip:
+        name: awxkit
+
+    - name: List folders
+      shell: ls -lah /playbooks/exports
+
+    - name: Get export content
+      slurp:
+        src: /playbooks/exports/export_inventory.json
+      register: export
+
+    - ansible.builtin.debug:
+        msg: "the value of export_inventory.json is {{ export.content | b64decode }}"
+
+    - name: Import assets from json file
+      awx.awx.import:
+        assets: "{{ export.content | b64decode }}"
+        controller_host: https://aap
+        controller_password: password
+        controller_username: admin

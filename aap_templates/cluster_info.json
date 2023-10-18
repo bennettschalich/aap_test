@@ -1,0 +1,16 @@
+{
+  "nodes": [
+    {
+      "ip": "192.168.1.1",
+      "group": "group1"
+    },
+    {
+      "ip": "192.168.2.2",
+      "group": "group2"
+    }
+  ],
+  "groups": [
+    "group1",
+    "group2"
+  ]
+}

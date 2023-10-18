@@ -1,0 +1,8 @@
+- hosts: "{{ host }}"
+
+  tasks:
+    - name: Print out host
+      debug:
+        msg: "Host is {{ host }}"
+
+    # Do role-based provisioning

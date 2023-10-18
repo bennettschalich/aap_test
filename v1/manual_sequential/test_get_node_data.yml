@@ -1,0 +1,74 @@
+- hosts: localhost
+
+  vars:
+    ip: 192.168.1.1 # this ip should come from looking up the most recent started node
+    token: sha256~cJHFyinVooFeAfcqGYAHzW6ShqdQcqpS9us7hZLarrk
+    node_info: {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "kube_node_info",
+              "container": "kube-rbac-proxy-main",
+              "container_runtime_version": "cri-o://1.26.4-4.1.rhaos4.13.git92b763a.el9",
+              "endpoint": "https-main",
+              "internal_ip": "192.168.17.13",
+              "job": "kube-state-metrics",
+              "kernel_version": "5.14.0-284.36.1.el9_2.x86_64",
+              "kubelet_version": "v1.26.9+636f2be",
+              "kubeproxy_version": "v1.26.9+636f2be",
+              "namespace": "openshift-monitoring",
+              "node": "api.ocp4-beta.vsap.local.17.168.192.in-addr.arpa",
+              "os_image": "Red Hat Enterprise Linux CoreOS 413.92.202310210500-0 (Plow)",
+              "service": "kube-state-metrics",
+              "system_uuid": "4c4c4544-0058-5210-8044-b2c04f383533"
+            },
+            "value": [
+              1700590266.713,
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+
+  tasks:
+    - name: Install awxkit
+      ansible.builtin.pip:
+        name: awxkit
+
+#    - name: Look up node information
+#      uri:
+#        url: https://prometheus-k8s-openshift-monitoring.apps.ocp4-beta.vsap.local/api/v1/query?query=1
+#        method: GET
+#        headers:
+#          Content-Type: application/json
+#          Authorization: "Bearer sha256~cJHFyinVooFeAfcqGYAHzW6ShqdQcqpS9us7hZLarrk"
+#          Accept: application/json
+#        validate_certs: false
+#      register: node_info
+
+    # Tried using URI ansible module above but was getting 403.
+#    - name: Look up node information
+#      shell: "curl -s -g -k  GET  'Authorization: Bearer sha256~cJHFyinVooFeAfcqGYAHzW6ShqdQcqpS9us7hZLarrk' -H 'Accept: application/json' -H 'Content-Type: application/json' 'https://prometheus-k8s-openshift-monitoring.router.default.svc.clust.local/api/v1/query?query=1'"
+#
+#      register: node_info
+#
+    - name: Print out node lookup call
+      debug:
+        msg: "Node information is {{ node_info.data.result }}"
+
+    - name: Call role job template wrapper
+      awx.awx.job_launch:
+        job_template: "Provision {{ ip }}"
+        extra_vars:
+          ip: "{{ item.metric.internal_ip }}"
+        controller_host: https://aap-automation-controller-aap.apps.ocp4-beta.vsap.local
+        controller_password: wJXLvxg5n34Kk7R9mq8wRy0adq3q3zGc
+        controller_username: admin
+        controller_oauthtoken: n3MTIYGqeilhBq81AY9TOFLYdmZTxo
+        validate_certs: no
+      loop: "{{ query('node_info.data.result', 'all') }}"
+      when: node_info.status == "success"

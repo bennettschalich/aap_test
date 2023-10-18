@@ -1,0 +1,21 @@
+{
+  "description": "",
+  "host_filter": null,
+  "kind": "",
+  "name": "Demo Inventory",
+  "natural_key": {
+    "name": "Demo Inventory",
+    "organization": {
+      "name": "",
+      "type": "organization"
+    },
+    "type": "inventory"
+  },
+  "organization": {
+    "name": "Default",
+    "type": "organization"
+  },
+  "prevent_instance_group_fallback": false,
+  "related": {},
+  "variables": ""
+}

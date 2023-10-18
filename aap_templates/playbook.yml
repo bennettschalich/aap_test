@@ -1,0 +1,7 @@
+- name: Generate default inventory json
+  hosts: all
+  become: true
+
+  vars_file:
+    - vars.yml
+

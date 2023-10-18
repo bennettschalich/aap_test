@@ -1,0 +1,15 @@
+- name: Listen for events on a webhook
+  hosts: all
+
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0 #alertmanager-main-openshift-monitoring.apps.ocp4-beta.vsap.local
+        port: 5000
+
+  rules:
+    - name: Run job template
+      condition: 1 == 1
+      actions:
+        - run_job_template:
+            name: Node Lookup
+            organization: Default
