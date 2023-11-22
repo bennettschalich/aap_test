@@ -1,11 +1,11 @@
-- host: 192.168.17.11
+- hosts: 192.168.17.11
 
   tasks:
-    - name: Create directory
-      ansible.builtin.file:
-        path: ~/test_open
-        state: directory
-        mode: '0777'
+    - name: Install awxkit
+      ansible.builtin.pip:
+        name: awxkit
+
+
 
     - name: Call role specific job_template
       awx.awx.job_launch:
@@ -17,3 +17,4 @@
         controller_username: admin
         controller_oauthtoken: n3MTIYGqeilhBq81AY9TOFLYdmZTxo
         validate_certs: no
+
