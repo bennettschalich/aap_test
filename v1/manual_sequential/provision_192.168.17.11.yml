@@ -5,8 +5,6 @@
       ansible.builtin.pip:
         name: awxkit
 
-
-
     - name: Call role specific job_template
       awx.awx.job_launch:
         job_template: "Role1 Template"

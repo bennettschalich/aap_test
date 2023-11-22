@@ -1,8 +1,7 @@
 - hosts: localhost
 
   vars:
-    ip: 192.168.1.1 # this ip should come from looking up the most recent started node
-    token: eyJhbGciOiJSUzI1NiIsImtpZCI6InZINFY0Njl6S2piY19rOFIyYm8xRzJyUnA3enhLaEMwTi1hajV3aWd3Z0kifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTcwMDU5NjkyOSwiaWF0IjoxNzAwNTkzMzI5LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6Im9wZW5zaGlmdC1tb25pdG9yaW5nIiwic2VydmljZWFjY291bnQiOnsibmFtZSI6InByb21ldGhldXMtazhzIiwidWlkIjoiNmJlYjI1MTUtZTBjZS00NmVhLTgyOTAtZjZkMWFiM2JjMzVjIn19LCJuYmYiOjE3MDA1OTMzMjksInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpvcGVuc2hpZnQtbW9uaXRvcmluZzpwcm9tZXRoZXVzLWs4cyJ9.hnaHHt0uIvWIfIT4B5Na7QiFzNfwjvuAQ6MOenE6cbO8Y1cFWBgbvZxBN-kDT0CZ9W1A-Spa4K9j3c9oPpT3fsOE1nphQlOEOb7XlF16G9tZDQSdTf-AAR9cZpEKJ02DpgKca2KkhEN2IOpEEWkIYIW6iqFh3nu3vnXj4vObxvFczxdrdE9-JVdsGkS1Ukq1m6RQ9StKV0metLzhWBf_HHFelngJ_ogKfTUFdDGsJ7NgwtaMtKlGBdJi2ctg9JF3bH0L7xRgQrdDq490MlulcJobuV6Xl0bCwqBVvxUFSIAF6U4fRLt8YGBl7OBBsJ226cgHUYcx7M0jnD0G3YBEf_w2uiY7brqYSccgW1UUCPCyThvadlwMg3X8tzCZnCpQx0nk4lIRs1N957y1dPGhKjXzJ71TD1d6CND2SpGzVQoKLHwdXX9DigaePqjE3uoZZUvBPDhoVLz0Cm79ltovpz9rQBuzQyChfd5Z4gmuTU-2AWk10rxCVCuWhCovs_ZwzW6gN0e1odZA1udaMaYtBwyngORdn1lBGkKBx6Ot2zLkg_X1Scqv49f2tJ8QPpSon7iwXuXRF1np8yiDaMAYinnyBq1Lv4J3KGUzjeQ4IDznVt1J5bPMi5uz6z7IXmJX5rMldCUmoa2HthPd2ANDpVifgSl4y9X2wTo9yym23n4
+    token: eyJhbGciOiJSUzI1NiIsImtpZCI6InZINFY0Njl6S2piY19rOFIyYm8xRzJyUnA3enhLaEMwTi1hajV3aWd3Z0kifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTcwMTMwMzMyOCwiaWF0IjoxNzAxMjk5NzI4LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6Im9wZW5zaGlmdC1tb25pdG9yaW5nIiwic2VydmljZWFjY291bnQiOnsibmFtZSI6InByb21ldGhldXMtazhzIiwidWlkIjoiNmJlYjI1MTUtZTBjZS00NmVhLTgyOTAtZjZkMWFiM2JjMzVjIn19LCJuYmYiOjE3MDEyOTk3MjgsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpvcGVuc2hpZnQtbW9uaXRvcmluZzpwcm9tZXRoZXVzLWs4cyJ9.PYSS6VbMPTGPZlyRHBTBczUAQe9_9MEvw2Zl4YHT1Y0K6gyMBMUmKGBST01O9gbHYDLhIMLcNP_uIwam0SiF0IhVDjIhP5T08D2EmC8veCNnJHFqlYLZ2AUvsQiR6_fV5B9B7TSjR7EQ9e3oPCjDBAZaJgKrWpEZqlIBXCM6MPfVcFRSI7cHsV762BPE_Aiy7hgpz_chktWMBJbOQYnqdpAdHDEEyAVehPcj4PAMsC9knfoFWmISlURJxPBaDrXi5kujBhWubux7p5qtqEk89HOb55B6_Wtg_u7ADM2WZh7dHqdq1GhaU2qvYMoW2cVuC3RQ_pO0ri5z9-R3up9--9M8I1p7aY-fjYvkbiUxhQAgkXS9X_Wgv2192pDtq1hVztMuRcTa-HSzk3pmmnIBWfqETUyPeEUPf6jMdSE_aK9p0XojdAh7yxH7bz7OQl5fgJSPdWZOEbJnFfXKbH5j_o-q7rcHJvKS6z-iQuBUjSJBYmo7doaQjEHX-sm-5yMqUlDvhsNi8bPJFw5cqMpQoWNXbUpXvYl4POEF1aIwvacq5bOpLtIrcQrCazTmogbPWXW74cIqK4XU46UbH4RAL2f6wg8sVFAQy8GrxI-bWqPoEtdr7j5YAk9cofi7f_PqDmneJeXIqoP_XHUvXNfoZu0j4wHqRbQ99ktUiuKpZm8
     prometheus_route: https://prometheus-k8s-openshift-monitoring.apps.ocp4-beta.vsap.local/api
 #    node_info: {
 #      "status": "success",
@@ -53,8 +52,12 @@
 
     # Tried using URI ansible module above but was getting 403.
     - name: Look up node information
-      shell: 'curl -s -k -H "Authorization: Bearer {{ token }}" -G --data-urlencode "query=kube_node_info and on(node) label_replace(node_time_seconds - node_boot_time_seconds < 150, \"node\", \"\$1\", \"instance\", \"(.*)\")" {{ prometheus_route }}/v1/query'
+      shell: 'curl -s -k -H "Authorization: Bearer {{ token }}" -G --data-urlencode "query=kube_node_info and on(node) label_replace(node_time_seconds - node_boot_time_seconds < 3000, \"node\", \"\$1\", \"instance\", \"(.*)\")" {{ prometheus_route }}/v1/query'
       register: node_info_output
+
+    - name: Print out node lookup call
+      debug:
+        msg: "Node information is {{ node_info_output }}"
 
     - name: Set node info
       set_fact:
@@ -66,7 +69,7 @@
 
     - name: Call role job template wrapper
       awx.awx.job_launch:
-        job_template: "Provision {{ ip }}"
+        job_template: "Provision {{ item.metric.internal_ip }}"
         extra_vars:
           ip: "{{ item.metric.internal_ip }}"
         controller_host: https://aap-automation-controller-aap.apps.ocp4-beta.vsap.local

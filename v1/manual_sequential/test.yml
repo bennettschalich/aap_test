@@ -1,8 +1,15 @@
-- hosts: "{{ host }}"
+- hosts: localhost
 
   tasks:
-    - name: Print out host
-      debug:
-        msg: "Host is {{ host }}"
+    - name: Look for /etc/tower
+      shell: ls -lah /etc
 
-    # Do role-based provisioning
+    - name: Call role job template wrapper
+      awx.awx.job_list:
+        status: running
+        controller_host: https://aap-automation-controller-aap.apps.ocp4-beta.vsap.local
+        controller_password: wJXLvxg5n34Kk7R9mq8wRy0adq3q3zGc
+        controller_username: admin
+        controller_oauthtoken: n3MTIYGqeilhBq81AY9TOFLYdmZTxo
+      register: job_list
+

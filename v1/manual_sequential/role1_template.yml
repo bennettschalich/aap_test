@@ -11,4 +11,3 @@
         state: directory
         mode: '0777'
 
-    # Do role-based provisioning
